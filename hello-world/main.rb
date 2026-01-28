@@ -388,53 +388,211 @@
 # p count
 # p arr.select {|element| element.odd?}
 
-data_array = []
 
-loop do
-    puts "Choose an action you want to do(type 1-3):"
-    puts "1. Deposit\n2. Withdraw\n3. Exit".chomp
-    input = gets.chomp.to_i
-    
-    case input
-    when 1
-        #deposit
-        print "Enter amount you want to deposit: "
-        deposit_amount = gets.chomp.to_f
-        data_array << deposit_amount
-        balance = data_array.sum
-        
-        puts "You're account balance: #{balance}"
-        
-    when 2
-        #withdraw
-        if data_array.empty?
-            puts "Deposit first, you don't have balance."
-        else
-            print "Enter amount you want to withdraw: "
-            withdraw_amount = gets.chomp.to_f
-    
-            if withdraw_amount > data_array.sum
-                puts ""
-                puts "Insufficient funds!"
-                puts ""
-            else
-                new_balance = data_array.sum - withdraw_amount
-                data_array.clear
-                data_array << new_balance
-    
-                puts ""
-                print "You withdraw an amount of: #{withdraw_amount}\n"
-                print "Your new balance: #{new_balance}\n"
-                puts ""
-            end
-        end
+# ---- SIMPLE CONSOLE PROJECT ---- #
 
-        # new_balance = data_array.sum - withdraw_amount
+# data_array = []
+
+# loop do
+#     puts "Choose an action you want to do(type 1-3):"
+#     puts "1. Deposit\n2. Withdraw\n3. Exit".chomp
+#     input = gets.chomp.to_i
+    
+#     case input
+#     when 1
+#         #deposit
+#         print "Enter amount you want to deposit: "
+#         deposit_amount = gets.chomp.to_f
+#         data_array << deposit_amount
+#         balance = data_array.sum
         
-    when 3
-        #exit
-        puts "Operation exited."
-        break
-    end
+#         puts "You're account balance: #{balance}"
+        
+#     when 2
+#         #withdraw
+#         if data_array.empty?
+#             puts "Deposit first, you don't have balance."
+#         else
+#             print "Enter amount you want to withdraw: "
+#             withdraw_amount = gets.chomp.to_f
+    
+#             if withdraw_amount > data_array.sum
+#                 puts ""
+#                 puts "Insufficient funds!"
+#                 puts ""
+#             else
+#                 new_balance = data_array.sum - withdraw_amount
+#                 data_array.clear
+#                 data_array << new_balance
+    
+#                 puts "\t"
+#                 print "You withdraw an amount of: #{withdraw_amount}\n"
+#                 print "Your new balance: #{new_balance}\n"
+#                 puts ""
+#             end
+#         end
+
+#         # new_balance = data_array.sum - withdraw_amount
+        
+#     when 3
+#         #exit
+#         puts "Operation exited."
+#         break
+#     end
+# end
+
+# puts "Enter your name: "
+# name = gets.chomp
+
+# puts "Hello #{name}"
+
+# ---- ternary operator ---- #
+
+# age = 17
+# status = age >= 18 ? "Adult" :  "Go back to bed it's past 10 PM"
+# puts status
+
+# count = 5
+# count.times do
+#     puts "Hello world!"
+# end
+
+# ---- LOOPS ---- #
+
+# i = 0
+# loop do
+#     puts i+= 1
+#     break if i == 10
+# end
+
+# for i in 1..5
+#     puts i
+# end
+
+# cars = ["SUPRA", "GTR", "RX7"]
+# cars.push("NSX")
+# cars.each do |car|
+#     puts car
+# end
+
+# ---- HASH MERGE METHOD ---- #
+# cars = {                          
+#     :name => "",
+#     :year => ""
+# }
+# cars[:year] = cars[:year].to_i
+# new_value = cars.merge({              # => ADDING value in HASH
+#     :name => "Supra",
+#     :year => 2003
+# })
+# keys = new_value.keys         # => KEYS in HASH
+# puts keys
+# values = new_value.values     # => VALUES in HASH
+# puts values
+# puts new_value
+# new_value[:year] = 1987      # REASSIGNING value or EDITING value
+# puts new_value
+
+# ---- ROCKET SYNTAX ---- #
+# american_cars = {
+#     :chevrolet => "Corvette",
+#     :ford => "Mustang",
+#     :dodge => {:ac => "Ram"}
+# }
+# ---- SYMBOL SYNTAX ---- #
+# japanese_cars = {
+#     honda: "Civic",
+#     toyota: "Corolla",
+#     nissan: {jap: "Altima"}
+# }
+# merge_one_value = american_cars[:dodge].merge(japanese_cars[:nissan])
+# p merge_one_value
+# merge_hash = american_cars.merge(japanese_cars)
+# merge_hash.each do |key, value|
+#     puts "#{key}: #{value}"
+# end
+
+# ----- METHOD or FUNCTION ---- #
+
+# def addition(firstnumber, secondnumber)
+#     return firstnumber + secondnumber
+# end
+
+# print "Enter your first number: "
+# first_number = gets.chomp.to_i
+
+# print "Enter your second number: "
+# second_number = gets.chomp.to_i
+
+# sum = addition(first_number, second_number)
+# puts "The sum of #{first_number} and #{second_number} is: #{sum}"
+
+# loop do
+#     def greet(name = "guest")
+#         puts "Hello, #{name}!"
+#     end
+    
+#     print "Enter your name: "
+#     your_name = gets.chomp
+    
+#     if your_name.empty?
+#         puts greet
+#     else
+#         greet(your_name)
+#         break
+#     end
+# end
+
+# ---- IMPLICIT RETURN(WITHOUT "RETURN" KEYWORD) ---- #
+
+# def even_odd(number)
+#     if number % 2 == 0
+#         "Even number"
+#     else
+#         "Odd number"
+#     end
+# end
+
+# puts even_odd(20)
+# puts even_odd(15)
+
+# ---- EXPLICIT RETURN(WITH "RETURN" KEYWORD)
+# def even_odd(number)
+#     unless number.is_a? Numeric
+#         return "Please input a valid number"
+#     end
+
+#     if number % 2 == 0
+#         "Even number"
+#     else
+#         "Odd number"
+#     end
+# end
+
+# print "Enter a number to check if it is odd or even: "
+# num = gets.chomp.to_i
+# puts even_odd(num)
+
+# def return_squared(number)
+#     return number * number
+# end
+# puts return_squared(50)
+
+# ---- CHAINING METHODS ---- #
+# phrase = ["to", "be", "HERO"]
+
+# puts phrase.join(" ").downcase
+
+# message = "hello world"
+# message.upcase!               # => BANG METHOD overwrite the actual value
+# message = message.upcase      # => MANUAL REASSIGNMENT
+# puts message
+
+def isogram?(string)
+    original_length = string.length
+    string_array = string.downcase.split("")
+    unique_length = string_array.uniq.length
+    original_length == unique_length
 end
 
+p isogram?("Odin")
