@@ -588,11 +588,32 @@
 # message = message.upcase      # => MANUAL REASSIGNMENT
 # puts message
 
-def isogram?(string)
-    original_length = string.length
-    string_array = string.downcase.split("")
-    unique_length = string_array.uniq.length
-    original_length == unique_length
-end
+# def isogram?(string)
+#     original_length = string.length
+#     string_array = string.downcase.split("")
+#     unique_length = string_array.uniq.length
+#     original_length == unique_length
+# end
+# p isogram?("Odin")
 
-p isogram?("Odin")
+# ---- ENUMERABLES METHODS ---- #
+# applicable for set of values like array, hash, range, sets 
+#.each
+# .each_with_index
+# .map
+# .select
+# .reduce
+
+friends = ["Harvey", "Elvi", "Mark", "Harold", "Carlos", "Kent"]
+# enemy = friends.reject {|friend| friend == 'Elvi'}
+# p enemy
+friends.map{|friend| p friend.upcase}
+
+# friends.each_with_index do |friend, index|
+#     e = index.even? ? "#{index} - #{friend}" : "Not even index"
+#     p e
+#     # puts "#{index.even?} - #{friend}"
+# end
+# p friend_group``
+
+
