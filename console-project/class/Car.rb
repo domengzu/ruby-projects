@@ -1,19 +1,20 @@
 class Car
-  @@cars_array = []
+  # @@cars_array = []
 
   attr_accessor :model, :year
 
   def initialize(model, year)
+    @cars = []
     @model = model
     @year = year
-    @@cars_array << self
+    @cars << self
   end
   def self.all
-    @@cars_array
+    @cars_array
   end
 
-  # def info
-  #   puts "Your car model is: #{@model}"
-  #   puts "Car year make: #{@year}"
-  # end
+  def info
+    puts "Your car model is: #{@model}"
+    puts "Car year make: #{@year}"
+  end
 end

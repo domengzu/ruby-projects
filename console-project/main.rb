@@ -6,6 +6,7 @@ model = gets.chomp
 print "What year is it made? "
 year = gets.chomp
 
-Car.new(model, year)
-Car.all.each {|car| puts "[#{car.model}, #{car.year}]"}
+car = Car.new(model, year)
+# Car.all.each {|car| puts "[#{car.model}, #{car.year}]"}
 # car.info
+car.info
