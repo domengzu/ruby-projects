@@ -604,16 +604,163 @@
 # .select
 # .reduce
 
-friends = ["Harvey", "Elvi", "Mark", "Harold", "Carlos", "Kent"]
+# friends = ["Harvey", "Elvi", "Mark", "Harold", "Carlos", "Kent"]
+# p friends.select{|friend| friend != 'Elvi'}
+
+# responses = {
+#   :Harvey => 'yes',
+#   :Mark => 'yes',
+#   :Harold => 'no',
+#   :Carlos => 'no',
+#   :Kent => 'yes'
+# }
+# p responses.select{|person, response| response == 'yes'}
+
+# votes = ["Jollibee", "McDo", "ATONG KAN-ANAN", ""]
+# def vote_info(votes)
+#   votes.map! {|vote| vote.upcase}
+#   p votes
+#   votes.map! {|vote| vote.capitalize}
+#   p votes
+# end
+# vote_info(votes)
+
+# results = votes.reduce(Hash.new(0)) do |result, vote|
+#   result[0] += 1
+#   result
+# end
+# p results
+
+# hundreds = Hash.new([100, 200])
+# hundreds = hundreds["first"]
+# # hundreds = hundreds["second"]
+# p "#{hundreds.sum}"
+
 # enemy = friends.reject {|friend| friend == 'Elvi'}
 # p enemy
-friends.map{|friend| p friend.upcase}
-
 # friends.each_with_index do |friend, index|
 #     e = index.even? ? "#{index} - #{friend}" : "Not even index"
 #     p e
 #     # puts "#{index.even?} - #{friend}"
 # end
 # p friend_group``
+
+# config = {
+#   db: {user: 'admin', password: 'abc123'},
+#   connection: {username: 'domengzu', password: 'abcdef'}
+# }
+
+# case config
+# in db: {user:}
+#   puts "Connect with '#{user}'"
+# in connection: {username:}
+#   puts "Connect with user '#{username}'"
+# else
+#   puts "unrecognized structure of config"
+# end
+
+# number = 023
+
+# number = number.kind_of?(String)
+# p number
+
+# p 'hello world'.freeze.frozen?
+
+# class Account
+#   def initialize(balance = 0)
+#     @balance = balance
+#   end
+
+#   def deposit(amount)
+#     @balance += amount if amount > 0
+#   end
+
+#   def withdraw(amount)
+#     if amount > 0 && @balance >= amount
+#       @balance -= amount
+#     else
+#       puts "Insufficient funds or invalid amount"
+#     end
+#   end
+
+#   def display_balance
+#     "Balance: $#{@balance}"
+#   end
+
+#   private
+
+#   def log_transaction(action, amount)
+#     puts "Transaction: #{action} $#{amount}"
+#   end
+# end
+
+# account = Account.new(100)
+# puts account.display_balance  # => Balance: $100
+# account.withdraw(50)
+# puts account.display_balance  # => Balance: $50
+
+# ---- CLASSES WITH METHODS && TYPE OF CLASSES ---- #
+
+module Drivable # => MODULE (SHARED BEHAVIOR)
+  def drive_module
+    puts "From Drivable module"
+  end
+end
+
+class Vehicle  # => INHERITANCE class
+  def move
+    puts "From Vehicle class(INHERITANCE)" # => INHERITANCE ("IS-A" RELATIONSHIP)
+  end
+end
+
+class Engine   # => COMPOSITION class ("HAS-A" RELATIONSHIP) 
+  def start
+    puts "Vroom!"
+  end
+end
+class Car < Vehicle # => INHERITANCE syntax
+  include Drivable  # => include the module
+
+  def initialize  # => constructor
+    @engine = Engine.new
+  end
+
+  def start 
+    @engine.start
+  end
+
+  def drive
+    puts "From Car class"
+  end
+  private # => keyword for (ENCAPSULATION)               
+  def login
+    puts "From private method(ENCAPSULATION)"
+  end
+end
+
+# ---- START POLYMORPHISM (SAME METHOD NAME, DIFF BEHAVIOR) ---- #
+class Email
+  def send
+    puts "Email sent!"    
+  end
+end
+class SMS
+  def send
+    puts "SMS sent!"
+  end
+end
+# ---- END POLYMORPHISM ---- #
+
+# ---- CALLING METHODS AND CREATING OBJECT FROM CLASS ---- #
+supra = Car.new  # => creating an object
+supra.drive_module # => from  Drivable module
+supra.move  # => from INHERITANCE class
+# supra.login # => cannot be called caused by (PRIVATE) keyword
+supra.start # => from COMPOSITION class
+
+email = Email.new  # ------------ #
+email.send         # POLYMORPHISM
+sms = SMS.new      # ------------ #
+sms.send           # ------------ #
 
 
