@@ -701,66 +701,163 @@
 
 # ---- CLASSES WITH METHODS && TYPE OF CLASSES ---- #
 
-module Drivable # => MODULE (SHARED BEHAVIOR)
-  def drive_module
-    puts "From Drivable module"
-  end
-end
+# module Drivable # => MODULE (SHARED BEHAVIOR)
+#   def drive_module
+#     puts "From Drivable module"
+#   end
+# end
 
-class Vehicle  # => INHERITANCE class
-  def move
-    puts "From Vehicle class(INHERITANCE)" # => INHERITANCE ("IS-A" RELATIONSHIP)
-  end
-end
+# class Vehicle  # => INHERITANCE class
+#   def move
+#     puts "From Vehicle class(INHERITANCE)" # => INHERITANCE ("IS-A" RELATIONSHIP)
+#   end
+# end
 
-class Engine   # => COMPOSITION class ("HAS-A" RELATIONSHIP) 
-  def start
-    puts "Vroom!"
-  end
-end
-class Car < Vehicle # => INHERITANCE syntax
-  include Drivable  # => include the module
+# class Engine   # => COMPOSITION class ("HAS-A" RELATIONSHIP) 
+#   def start
+#     puts "Vroom!"
+#   end
+# end
+# class Car < Vehicle # => INHERITANCE syntax
+#   include Drivable  # => include the module
 
-  def initialize  # => constructor
-    @engine = Engine.new
-  end
+#   def initialize  # => constructor
+#     @engine = Engine.new
+#   end
 
-  def start 
-    @engine.start
-  end
+#   def start 
+#     @engine.start
+#   end
 
-  def drive
-    puts "From Car class"
-  end
-  private # => keyword for (ENCAPSULATION)               
-  def login
-    puts "From private method(ENCAPSULATION)"
-  end
-end
+#   def drive
+#     puts "From Car class"
+#   end
+#   private # => keyword for (ENCAPSULATION)               
+#   def login
+#     puts "From private method(ENCAPSULATION)"
+#   end
+# end
 
-# ---- START POLYMORPHISM (SAME METHOD NAME, DIFF BEHAVIOR) ---- #
-class Email
-  def send
-    puts "Email sent!"    
-  end
-end
-class SMS
-  def send
-    puts "SMS sent!"
-  end
-end
-# ---- END POLYMORPHISM ---- #
+# # ---- START POLYMORPHISM (SAME METHOD NAME, DIFF BEHAVIOR) ---- #
+# class Email
+#   def send
+#     puts "Email sent!"    
+#   end
+# end
+# class SMS
+#   def send
+#     puts "SMS sent!"
+#   end
+# end
+# # ---- END POLYMORPHISM ---- #
 
-# ---- CALLING METHODS AND CREATING OBJECT FROM CLASS ---- #
-supra = Car.new  # => creating an object
-supra.drive_module # => from  Drivable module
-supra.move  # => from INHERITANCE class
-# supra.login # => cannot be called caused by (PRIVATE) keyword
-supra.start # => from COMPOSITION class
+# # ---- CALLING METHODS AND CREATING OBJECT FROM CLASS ---- #
+# supra = Car.new  # => creating an object
+# supra.drive_module # => from  Drivable module
+# supra.move  # => from INHERITANCE class
+# # supra.login # => cannot be called caused by (PRIVATE) keyword
+# supra.start # => from COMPOSITION class
 
-email = Email.new  # ------------ #
-email.send         # POLYMORPHISM
-sms = SMS.new      # ------------ #
-sms.send           # ------------ #
+# email = Email.new  # ------------ #
+# email.send         # POLYMORPHISM
+# sms = SMS.new      # ------------ #
+# sms.send           # ------------ #
 
+# class Numbers
+#   attr_accessor :numbers, :element, :result
+
+#   def initialize(numbers, element, result)
+#     @numbers = numbers
+#     @element = element
+#     @result = result    
+#   end
+  
+#   def find_element
+#     result = @numbers.include?(@element)
+#     return result
+#     # @numbers.each do |number|
+#     #   if number == @element
+#     #     @result = true
+#     #     break
+#     #   end
+#     # end
+#     # return @result
+#   end
+
+#   def numbers
+#     @numbers
+#   end
+
+#   def element
+#     @element
+#   end
+# end
+
+# num = Numbers.new([5, 6, 7, 8], 3, false)
+# found_element = num.find_element
+# puts "Number list: #{num.element} is with/without #{num.numbers} so it is #{found_element}"
+ 
+# numbers = [21, 42, 50, 100]
+# # result = false
+
+# numbers.any? do |number|
+#   if number > 40
+#     p number
+#   end
+# end
+
+# numbers.each do |number|
+#   if number >= 50
+#     p result = true
+#     p number
+#   end
+# end
+
+# fruits = ['apple', 'banana', 'watermelon', 'mango', 'guava']
+# # matches = []
+
+# result = fruits.none? {|fruit| fruit.length > 10}
+# p result
+
+# ----------------------------------------------- #
+
+# teacher_mailboxes = [
+#   ["Adams", "Baker", "Clark", "Davis"],
+#   ["Jones", "Lewis", "Lopez", "Moore"],
+#   ["Perez", "Scott", "Smith", "Young"]
+# ]
+
+# teacher_mailboxes.flatten.each do |teacher|
+#   puts "Teacher: #{teacher}"
+# end
+
+# p teacher_mailboxes[0].push("Hii")
+# p teacher_mailboxes[1].pop
+
+# p teacher_mailboxes
+
+# nested_array = Array.new(3) {Array.new(2)}
+# nested_array[0][0] = 500
+
+# p nested_array
+
+# test_scores = [
+#   [95, 90, 75, 80, 85],
+#   [93, 81, 86, 85, 87],
+#   [85, 83, 79, 89, 85],
+#   [88, 93, 78, 83, 81]
+# ]
+
+# greater_than_80 = test_scores.all? do |grades|
+#   grades.any? {|grade| grade > 80}
+# end
+
+# p greater_than_80
+
+vehicles = {
+  alice: {year: 2019, make: "Toyota", model: "Corolla"},
+  blake: {year: 2020, make: "Volkswagen", model: "Beetle"},
+  caleb: {year: 2020, make: "Honda", model: "Accord"}
+}
+p vehicles[:alice][:make]
 
