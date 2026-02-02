@@ -854,10 +854,60 @@
 
 # p greater_than_80
 
-vehicles = {
-  alice: {year: 2019, make: "Toyota", model: "Corolla"},
-  blake: {year: 2020, make: "Volkswagen", model: "Beetle"},
-  caleb: {year: 2020, make: "Honda", model: "Accord"}
-}
-p vehicles[:alice][:make]
+# vehicles = {
+#   alice: {year: 2019, make: "Toyota", model: "Corolla"},
+#   blake: {year: 2020, make: "Volkswagen", model: "Beetle"},
+#   caleb: {year: 2020, make: "Honda", model: "Accord"}
+# }
+# vehicles[:john] = {year: 2019, make: "Toyota", model: "Corolla"}
+
+# vehicle = vehicles.filter_map {|name, data| name if data[:year] >= 2020}
+# p vehicle
+
+# p vehicles[:john]
+# vehicles[:john][:color] = 'red'
+# p vehicles[:john]
+# vehicles[:john].delete(:color)
+# p vehicles[:john]
+
+# puts "Alice's vehicle: #{vehicles[:alice][:year]} #{vehicles[:alice][:make]} #{vehicles[:alice][:model]}}"
+# updated_alice_vehilce = vehicles[:alice][:year] = 2025
+# puts "Updated Alice's vehicle: #{updated_alice_vehilce} #{vehicles[:alice][:make]} #{vehicles[:alice][:model]}}"
+
+def substrings(word, dictionary)
+  result = {}
+  dictionary.each do |substring|
+    count = word.downcase.scan(Regexp.new(substring.downcase)).length
+    result[substring] = count if count > 0
+  end
+  result
+end
+
+dictionary = [
+  "below",
+  "down",
+  "go",
+  "going",
+  "horn",
+  "how",
+  "howdy",
+  "it",
+  "i",
+  "low",
+  "own",
+  "part",
+  "partner",
+  "sit"
+]
+
+p substrings("Hi", dictionary)
+p substrings("Hello there!, sit dwon! how is it going?", dictionary)
+
+
+
+
+
+
+
+
 
