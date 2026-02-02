@@ -30,7 +30,7 @@ end
 
 cipher = CaesarCipher.new(3)
 p cipher.encrypt("Hello") 
-p cipher.decrypt("Khoor")
+p cipher.decrypt("Hello")
 
 # p 'a'.ord
 # p 'A'.ord
@@ -50,5 +50,4 @@ p cipher.decrypt("Khoor")
 #   p result
 # end
 
-# caesar_cipher("Khoor", 3)
-# caesar_decipher("Khoor", 3)
+# caesar_cipher("Hello", 3)

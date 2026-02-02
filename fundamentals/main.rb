@@ -874,34 +874,81 @@
 # updated_alice_vehilce = vehicles[:alice][:year] = 2025
 # puts "Updated Alice's vehicle: #{updated_alice_vehilce} #{vehicles[:alice][:make]} #{vehicles[:alice][:model]}}"
 
-def substrings(word, dictionary)
-  result = {}
-  dictionary.each do |substring|
-    count = word.downcase.scan(Regexp.new(substring.downcase)).length
-    result[substring] = count if count > 0
+# ------- SUBSTRING ACTIVITY ------- #
+
+# def substrings(word, dictionary)
+#   result = {}
+#   dictionary.each do |substring|
+#     count = word.downcase.scan(Regexp.new(substring.downcase)).length
+#     result[substring] = count if count > 0
+#   end
+#   result
+# end
+
+# dictionary = [
+#   "below",
+#   "down",
+#   "go",
+#   "going",
+#   "horn",
+#   "how",
+#   "howdy",
+#   "it",
+#   "i",
+#   "low",
+#   "own",
+#   "part",
+#   "partner",
+#   "sit"
+# ]
+
+# p substrings("Hi", dictionary)
+# p substrings("Hello there!, sit dwon! how is it going?", dictionary)
+
+# -------- STOCK PRICES ACTIVITY -------- #
+
+# def stock_picker(prices)
+#   buy_day = 0
+#   sell_day = 0
+#   min_price = prices[0]
+#   max_profit = 0
+
+#   prices.each_with_index do |price, day|
+#     if price < min_price
+#       min_price = price
+#       buy_day = day
+#     elsif (price - min_price) > max_profit
+#       max_profit = price - min_price
+#       sell_day = day
+#     end
+#   end
+#   [buy_day, sell_day]
+# end
+
+# puts stock_picker([1, 2, 3, 4, 5, 6, 7, 8 ,9 ,10, 12])
+
+# stock_prices = []
+
+# number = [5, 10, 9, 8, 3, 2, 6]
+
+# ---- BUBBBLE SORT ---- #
+
+def bubble_sort(number)
+  n = number.length
+
+  (n - 1).times do |i|
+    (n - i - 1).times do |j|
+      if number[j] > number[j + 1]
+        number[j], number[j + 1] = number[j + 1], number[j]
+      end
+    end
   end
-  result
+  number
 end
 
-dictionary = [
-  "below",
-  "down",
-  "go",
-  "going",
-  "horn",
-  "how",
-  "howdy",
-  "it",
-  "i",
-  "low",
-  "own",
-  "part",
-  "partner",
-  "sit"
-]
+p bubble_sort([5, 10, 9, 8, 3, 2, 6])
 
-p substrings("Hi", dictionary)
-p substrings("Hello there!, sit dwon! how is it going?", dictionary)
+
 
 
 
