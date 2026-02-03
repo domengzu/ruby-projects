@@ -933,20 +933,33 @@
 
 # ---- BUBBBLE SORT ---- #
 
-def bubble_sort(number)
-  n = number.length
+# def bubble_sort(number)
+#   n = number.length
 
-  (n - 1).times do |i|
-    (n - i - 1).times do |j|
-      if number[j] > number[j + 1]
-        number[j], number[j + 1] = number[j + 1], number[j]
-      end
-    end
-  end
-  number
-end
+#   (n - 1).times do |i|
+#     (n - i - 1).times do |j|
+#       if number[j] > number[j + 1]
+#         number[j], number[j + 1] = number[j + 1], number[j]
+#       end
+#     end
+#   end
+#   number
+# end
 
-p bubble_sort([5, 10, 9, 8, 3, 2, 6])
+# p bubble_sort([5, 10, 9, 8, 3, 2, 6])
+
+require_relative 'caesar-cipher'
+require 'colorize'
+require 'debug'
+
+cipher = CaesarCipher.new(3)
+
+print "Enter word to cipher: "
+text_to_cipher = gets.chomp
+encrypted = cipher.encrypt(text_to_cipher)
+puts "The encrypted word for #{text_to_cipher} isj #{encrypted}".colorize(:green).underline
+
+
 
 
 
