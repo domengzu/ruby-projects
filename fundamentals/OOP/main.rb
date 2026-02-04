@@ -1,8 +1,9 @@
 require_relative 'RPS/rock_paper_scissor'
 require_relative 'GTN/guess_the_number'
 require_relative 'DRB/dice_roll_battle'
+require_relative 'CFS/coin_flip_streak'
 
-puts "\n # ----- TEXT-BASE MINI ARCADE ----- #"
+puts "\n# ----- TEXT-BASE MINI ARCADE ----- #"
 
 loop do
   puts "1. Guess the Number."
@@ -29,18 +30,23 @@ loop do
     rps.play
     puts "\n"
   when 3
-    puts "\n # ----- DICE ROLL BATTLE --- #"
+    puts "\n# ----- DICE ROLL BATTLE --- #"
     puts "\n"
     drb = DiceRollBattle.new
     drb.play
   when 4
-    puts "Coin  flip streak!"
+    puts "\n# ----- COIN FLIP STREAK ----- # "
+    puts "\n"
+    cfs = CoinFlipStreak.new
+    cfs.play
+    puts "\n"
   when 5
     puts "\n"
     puts "Program terminated, good bye!"
     break
   else
-    puts "Invalid input, please try again."
+    puts "\nInvalid input, please try again."
+    puts "\n"
   end
 end
 
