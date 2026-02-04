@@ -21,16 +21,22 @@ loop do
     gtn = GuessTheNumber.new(number_choosen)
     gtn.play
   when 2
-    puts "\n # ----- ROCK, PAPER, SCISSORS GAME ----- #"
+    puts "\n# ----- ROCK, PAPER, SCISSORS GAME ----- #"
     print "Enter your weapon (rock, paper, scissors) in lower case: "
     weapon = gets.chomp.downcase
+    puts "\n"
     rps = RockPaperScissor.new(weapon)
     rps.play
+    puts "\n"
   when 3
-    puts "Dice roll battle"
+    puts "\n # ----- DICE ROLL BATTLE --- #"
+    puts "\n"
+    drb = DiceRollBattle.new
+    drb.play
   when 4
     puts "Coin  flip streak!"
   when 5
+    puts "\n"
     puts "Program terminated, good bye!"
     break
   else
