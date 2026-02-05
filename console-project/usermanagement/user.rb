@@ -1,5 +1,4 @@
 class UserManagement
-  
   def initialize
     @users = []
     # @name = name
@@ -24,7 +23,7 @@ class UserManagement
     index = id - 1
     
     if index >= 0 && index < @users.length
-      @users[index] = new_name.capitalize!
+      @users[index] = new_name.capitalize
       puts "\nUser name updated successfully!"
       view_users
     else

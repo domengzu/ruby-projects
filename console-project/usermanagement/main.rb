@@ -20,8 +20,8 @@ loop do
   when 2
     puts "\n# ====== SEARCH USER ====== #"
     print "Enter name: "
-    name = gets.chomp
-    name.capitalize!
+    name = gets.chomp.capitalize
+    # name = name.capitalize
     user.search_user(name) 
   when 3
     puts "\n# ====== ADD USER ====== #"
@@ -51,8 +51,6 @@ loop do
     puts "Exit"
     break
   else
-    message = "\nTaronga imong input choi ayawg lapas sa choices, barumbado!"
-    puts message.upcase!
-    puts "\n"
+    puts "\nTARONGA NA IMONG INPUT CHOI AYAWG LAPAS SA CHOICES, BARUMBADO!"
   end
 end
