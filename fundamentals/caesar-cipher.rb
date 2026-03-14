@@ -28,9 +28,9 @@ class CaesarCipher
   end
 end
 
-# cipher = CaesarCipher.new
+cipher = CaesarCipher.new(3)
 # p cipher.encrypt("Hello", 3) 
-# p cipher.decrypt("Hello", 3)
+p cipher.encrypt("Hello")
 
 # p 'a'.ord
 # p 'A'.ord
